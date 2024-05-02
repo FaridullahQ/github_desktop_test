@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- extended form for hr.department view -->
+    <record id="egp_hr_department_form" model="ir.ui.view">
+        <field name="name">egp.hr.department.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="organization_year"/>
+                <field name="code"/>
+                <field name="position_rank_id"/>
+                <field name="position_status_id"/>
+            </xpath>
+            <xpath expr="//field[@name='manager_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!--        extended tree for hr.department view-->
+    <record id="egp_hr_department_tree" model="ir.ui.view">
+        <field name="name">egp_hr_department_tree</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="organization_year" string="Organization Year"/>
+                <field name="code"/>
+                <field name="position_rank_id"/>
+                <field name="position_status_id"/>
+            </xpath>
+            <xpath expr="//field[@name='manager_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_employee']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- extended inherited search view for hr.department  -->
+        </field>
+    </record>
+    <record id="egp_hr_department_search_view" model="ir.ui.view">
+        <field name="name">egp.hr.department.search.view</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="organization_year"/>
+                <field name="code"/>
+                <field name="position_rank_id"/>
+                <field name="position_status_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

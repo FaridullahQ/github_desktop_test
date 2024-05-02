@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menu item for user group configuration -->
+        <menuitem id="menu_user_groups" name="User Groups" parent="base.menu_administration"
+                  action="action_user_groups" sequence="30" groups="base.group_user"/>
+        <record id="action_user_groups" model="ir.actions.act_window">
+            <field name="name">my group_Groups</field>
+            <field name="res_model">res.groups</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base.view_groups"/>
+        </record>
+    </data>
+</odoo>
